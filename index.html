@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claudia Li · Frontend Dev 個人品牌網站</title>
-  <meta name="description" content="這是一個個人品牌網站，展示前端開發者的背景、技能、作品集與聯絡方式，提供完整的專案經驗與數位整合能力介紹。">
+  <title>Claudia Li｜AI × Data × Product</title>
+  <meta name="description" content="Claudia Li 個人網站，展示跨部門專案整合、數據分析、系統整合、SEO × GA4、Landing Page 流程設計與 AI 工具應用相關經驗與作品。">
 
   <style>
-
   /* CSS:BASE-START */
   * {
     box-sizing: border-box;
@@ -15,11 +14,33 @@
     padding: 0;
   }
 
+  :root {
+    --bg: #08111f;
+    --bg-soft: #0d1728;
+    --panel: rgba(14, 24, 42, 0.92);
+    --panel-strong: rgba(10, 19, 34, 0.96);
+    --line: rgba(148, 163, 184, 0.14);
+    --text: #e7eef7;
+    --muted: #96a8bd;
+    --primary: #38bdf8;
+    --primary-deep: #0ea5e9;
+    --tag-bg: rgba(56, 189, 248, 0.1);
+    --shadow: 0 18px 48px rgba(2, 6, 23, 0.34);
+    --radius: 20px;
+    --radius-sm: 14px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
-    line-height: 1.7;
+    font-family: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    background:
+      radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 28%),
+      linear-gradient(180deg, #07101d 0%, #091221 45%, #0a1324 100%);
+    color: var(--text);
+    line-height: 1.75;
   }
 
   img {
@@ -29,53 +50,157 @@
   }
 
   a {
-    color: #38bdf8;
+    color: var(--primary);
     text-decoration: none;
+    transition: 0.25s ease;
   }
 
   a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+  }
+
+  ul {
+    padding-left: 1.2rem;
   }
 
   .page {
     width: 100%;
+    overflow: hidden;
   }
 
   .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 20px;
+    padding: 0 20px;
   }
 
   .section {
-    padding: 60px 0;
+    padding: 72px 0;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border: 1px solid rgba(56, 189, 248, 0.24);
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.08);
+    color: #c7effd;
+    font-size: 13px;
+    letter-spacing: 0.04em;
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 30px;
+    line-height: 1.3;
     margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .section-desc {
+    max-width: 760px;
+    color: var(--muted);
+    margin-bottom: 30px;
+  }
+
+  .card {
+    background: linear-gradient(180deg, var(--panel), var(--panel-strong));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(56, 189, 248, 0.34);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+    color: #04101d;
+    border-color: transparent;
+  }
+
+  .btn-secondary {
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--text);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: #caeffd;
+    font-size: 13px;
   }
 
   .site-header {
     position: sticky;
     top: 0;
-    background: #020617;
-    border-bottom: 1px solid #1e293b;
-    z-index: 10;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    background: rgba(6, 16, 29, 0.84);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
   }
 
   .nav {
+    min-height: 74px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f8fbff;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-sub {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
   }
 
   .nav-links {
+    width: 100%;
     display: flex;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 12px 16px;
   }
 
   .nav-link {
+    font-size: 14px;
+    color: #d8e6f5;
+  }
+
+  .footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(2, 6, 23, 0.46);
+  }
+
+  .footer-inner {
+    padding: 24px 0 34px;
+    color: var(--muted);
     font-size: 14px;
   }
   /* CSS:BASE-END */
@@ -83,213 +208,818 @@
 
   /* CSS:HERO-START */
   .section-hero {
-    text-align: center;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 26px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    padding: 26px 0 10px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    line-height: 1.18;
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-title strong {
+    color: #bdefff;
+    font-weight: 800;
+  }
+
+  .hero-desc {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 14px;
+    max-width: 720px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .hero-stat {
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .hero-stat strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 24px;
+    color: #f8fbff;
+  }
+
+  .hero-stat span {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .hero-photo-card {
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    background: linear-gradient(180deg, rgba(17, 28, 49, 0.95), rgba(10, 20, 38, 0.95));
+    box-shadow: var(--shadow);
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 4.3;
+    object-fit: cover;
+  }
+
+  .hero-note {
+    padding: 18px 18px 20px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .hero-note-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .hero-note-text {
+    color: var(--muted);
+    font-size: 14px;
   }
   /* CSS:HERO-END */
 
 
   /* CSS:ABOUT-START */
   .section-about {
-    background: #020617;
+    background: rgba(6, 13, 26, 0.45);
   }
 
   .about-wrap {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 24px;
+    align-items: stretch;
+  }
+
+  .about-card {
+    padding: 26px;
   }
 
   .about-text p {
-    margin-bottom: 12px;
-    color: #94a3b8;
+    margin-bottom: 14px;
+    color: var(--muted);
   }
 
   .about-list {
-    margin: 16px 0;
-    padding-left: 18px;
+    list-style: none;
+    padding-left: 0;
+    margin: 18px 0 0;
+    display: grid;
+    gap: 12px;
   }
 
   .about-list li {
-    margin-bottom: 8px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    color: #dce8f5;
+  }
+
+  .about-list strong {
+    color: #f8fbff;
   }
 
   .about-actions {
     display: flex;
-    gap: 12px;
-    margin-top: 16px;
     flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
   }
 
-  .btn {
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    border: 1px solid #38bdf8;
+  .about-image-card {
+    overflow: hidden;
+    display: flex;
+    min-height: 320px;
   }
 
-  .btn-primary {
-    background: #38bdf8;
-    color: #020617;
-  }
-
-  .btn-outline {
-    color: #38bdf8;
-  }
-
-  .about-image img {
-    border-radius: 10px;
+  .about-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
   }
   /* CSS:ABOUT-END */
 
 
   /* CSS:SKILLS-START */
   .section-skills {
-    background: #0f172a;
+    background: transparent;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .skill-card {
+    padding: 24px;
+  }
+
+  .skill-title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .skill-text {
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   /* CSS:SKILLS-END */
 
 
   /* CSS:PROJECTS-START */
   .section-projects {
-    background: #020617;
+    background: rgba(6, 13, 26, 0.42);
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .project-card {
+    overflow: hidden;
+  }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .project-body {
+    padding: 22px;
+  }
+
+  .project-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .project-title {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .project-type {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: #caeffd;
+  }
+
+  .project-desc {
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .project-points {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .project-points li {
+    padding-left: 18px;
+    position: relative;
+    color: #dce8f5;
+  }
+
+  .project-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   /* CSS:PROJECTS-END */
 
 
   /* CSS:CONTACT-START */
   .section-contact {
-    background: #0f172a;
+    background: transparent;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .contact-card {
+    padding: 24px;
+  }
+
+  .contact-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .contact-text {
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .contact-list li {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    color: #dce8f5;
+    word-break: break-word;
+  }
+
+  .contact-list span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .contact-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
   }
   /* CSS:CONTACT-END */
 
 
   /* CSS:RWD-START */
   @media (min-width: 768px) {
-
-    .about-wrap {
+    .nav {
       flex-direction: row;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
-    .about-text {
-      flex: 1;
+    .nav-links {
+      width: auto;
+      justify-content: flex-end;
     }
 
-    .about-image {
-      flex: 1;
+    .section {
+      padding: 92px 0;
     }
 
+    .section-title {
+      font-size: 36px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 34px;
+    }
+
+    .hero-title {
+      font-size: 54px;
+    }
+
+    .hero-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-wrap {
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: stretch;
+    }
+
+    .about-image-card {
+      min-height: 100%;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.08fr 0.92fr;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .hero-title {
+      font-size: 60px;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
   /* CSS:RWD-END */
-
   </style>
 </head>
 
 <body>
-<div class="page">
+  <div class="page">
 
-<header class="site-header">
-  <div class="container nav">
-    <div>Claudia Li · Frontend Dev</div>
-    <nav class="nav-links">
-      <a href="#hero" class="nav-link">首頁</a>
-      <a href="#about" class="nav-link">關於我</a>
-      <a href="#skills" class="nav-link">技能</a>
-      <a href="#projects" class="nav-link">作品集</a>
-      <a href="#contact" class="nav-link">聯絡我</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<!-- SECTION:HERO-START -->
-<section id="hero" class="section section-hero">
-  <div class="container">
-    <h1>這裡是個人品牌網站主視覺（Hero 區）</h1>
-  </div>
-</section>
-<!-- SECTION:HERO-END -->
-
-
-<!-- SECTION:ABOUT-START -->
-<section id="about" class="section section-about" aria-labelledby="about-heading">
-  <div class="container">
-    <h2 id="about-heading" class="section-title">關於我</h2>
-
-    <div class="about-wrap">
-
-      <div class="about-text">
-        <p>
-          目前專注於前端開發與數位專案整合，具備 HTML / CSS / 基礎 JavaScript 能力，並結合實務經驗進行網站建置與優化。
-        </p>
-
-        <p>
-          擁有多年跨部門協作與營運經驗，重視溝通與流程清晰，習慣將複雜需求整理成可執行的方案，也喜歡把知識轉化為清楚易懂的內容。
-        </p>
-
-        <ul class="about-list">
-          <li>能將需求轉譯為實際網站與功能架構</li>
-          <li>具備專案整合與跨部門溝通能力</li>
-          <li>善於優化流程與提升使用者體驗</li>
-        </ul>
-
-        <div class="about-actions">
-          <a href="#projects" class="btn btn-primary">查看作品集</a>
-          <a href="#contact" class="btn btn-outline">聯絡我</a>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">
+          Claudia Li
+          <span class="brand-sub">AI × Data × Product｜數據驅動產品與流程優化</span>
         </div>
+
+        <nav class="nav-links" aria-label="主要導覽">
+          <a href="#hero" class="nav-link">首頁</a>
+          <a href="#about" class="nav-link">關於我</a>
+          <a href="#skills" class="nav-link">技能</a>
+          <a href="#projects" class="nav-link">作品集</a>
+          <a href="#contact" class="nav-link">聯絡我</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="正在寫程式的工程師" loading="lazy">
+    <main>
+      <!-- SECTION:HERO-START -->
+      <section id="hero" class="section section-hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Personal Website</span>
+              <h1 id="hero-title" class="hero-title">
+                從需求定義、流程設計到資料應用，<strong>推進可落地的產品與流程優化。</strong>
+              </h1>
+
+              <p class="hero-desc">
+                我是 Claudia Li，具備 10+ 年跨部門專案整合與營運經驗，近年聚焦於數據分析、系統整合與 AI 應用，擅長將商業與使用者需求轉化為可落地的產品與流程設計。
+              </p>
+
+              <p class="hero-desc">
+                我持續把 SEO、GA4、Landing Page、資料收集流程與 AI 工具應用連結到實際營運場景，讓分析、內容與流程優化可以真正支援決策與執行。
+              </p>
+
+              <div class="hero-tags">
+                <span class="tag">Product & Data Thinking</span>
+                <span class="tag">SEO × GA4</span>
+                <span class="tag">Landing Page</span>
+                <span class="tag">Google Apps Script</span>
+                <span class="tag">AI Application</span>
+                <span class="tag">Cross-functional PM</span>
+              </div>
+
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">查看作品集</a>
+                <a href="#contact" class="btn btn-secondary">聯絡我</a>
+              </div>
+
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <strong>18–19 年</strong>
+                  <span>總工作經歷與跨部門整合實務</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>SEO 成效</strong>
+                  <span>排名 9→6、CTR 3.1%→4.4%、自然流量成長約 20%</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>流程整合</strong>
+                  <span>表單 → 試算表 → Email 與 FAQ / ChatGPT 流程優化</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-photo-card">
+<img
+  class="hero-photo"
+  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80"
+  alt="筆電、筆記與數位專案工作的桌面情境"
+  loading="lazy"
+>
+              <div class="hero-note">
+                <div class="hero-note-title">目前聚焦方向</div>
+                <p class="hero-note-text">
+                  持續深化數據分析、系統整合與 AI 應用能力，期望將 AI 與數據驅動結合實際營運流程，協助企業提升決策效率並推動數位轉型。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:HERO-END -->
+
+
+      <!-- SECTION:ABOUT-START -->
+      <section id="about" class="section section-about" aria-labelledby="about-heading">
+        <div class="container">
+          <span class="eyebrow">About</span>
+          <h2 id="about-heading" class="section-title">關於我</h2>
+          <p class="section-desc">
+            我的核心能力不只在執行，而是在商業目標、使用者需求、資料應用與跨部門協作之間，整理出可落地的做法。
+          </p>
+
+          <div class="about-wrap">
+            <div class="about-card card about-text">
+              <p>
+                我具備長期跨部門專案整合與營運經驗，近年專注於數據分析、系統整合與 AI 應用。實務上曾建置官網導流 Landing Page，整合 HTML / CSS / JavaScript、表單設計與 Google Apps Script，建立資料收集與 Email 自動通知流程。
+              </p>
+
+              <p>
+                在數據應用上，我熟悉 GA4、Search Console、UTM、Looker Studio，能從資料收集、分析到應用，支援優化策略與決策判斷；在流程面，也曾導入 ChatGPT 優化 FAQ 與客服內容流程，提升回應效率與一致性。
+              </p>
+
+              <ul class="about-list">
+                <li><strong>Product & Data Thinking：</strong>可從商業目標與使用者需求出發，規劃轉換流程、表單系統與資料流設計。</li>
+                <li><strong>System & Integration：</strong>理解前端、API 與表單 → 試算表 → 通知的資料流邏輯。</li>
+                <li><strong>Project Management：</strong>具跨部門專案整合、需求整理、流程規劃、UAT 與專案推進經驗。</li>
+              </ul>
+
+              <div class="about-actions">
+                <a href="#projects" class="btn btn-primary">查看作品集</a>
+                <a href="#contact" class="btn btn-secondary">聯絡我</a>
+              </div>
+            </div>
+
+            <div class="card about-image-card">
+              <img
+                class="about-image"
+                src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=1200&q=80"
+                alt="筆電、筆記本與工作桌面的數位專案工作情境"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:ABOUT-END -->
+
+
+      <!-- SECTION:SKILLS-START -->
+      <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <span class="eyebrow">Skills</span>
+          <h2 id="skills-heading" class="section-title">技能與能力</h2>
+          <p class="section-desc">
+            依照目前履歷內容，我的能力可整理為產品與資料思維、數據分析、AI 應用、系統整合與專案管理五個面向。
+          </p>
+
+          <div class="skills-grid">
+            <article class="skill-card card">
+              <h3 class="skill-title">Product & Data Thinking</h3>
+              <p class="skill-text">
+                能從商業目標與使用者需求出發，規劃轉換流程與產品功能，包含 Landing Page、表單系統與資料流設計。
+              </p>
+              <div class="skill-tags">
+                <span class="tag">需求定義</span>
+                <span class="tag">流程設計</span>
+                <span class="tag">資料流規劃</span>
+                <span class="tag">PRD 規劃</span>
+              </div>
+            </article>
+
+            <article class="skill-card card">
+              <h3 class="skill-title">Data & Analytics</h3>
+              <p class="skill-text">
+                熟悉 GA4、Search Console、UTM、Looker Studio，可分析流量、關鍵字與轉換表現，建立 SEO × GA4 整合報表。
+              </p>
+              <div class="skill-tags">
+                <span class="tag">GA4</span>
+                <span class="tag">Search Console</span>
+                <span class="tag">UTM</span>
+                <span class="tag">Looker Studio</span>
+                <span class="tag">SEO</span>
+                <span class="tag">Google Tag Manager</span>
+              </div>
+            </article>
+
+            <article class="skill-card card">
+              <h3 class="skill-title">AI Application</h3>
+              <p class="skill-text">
+                導入 ChatGPT 建構 FAQ 與客服流程，提升回應效率與內容一致性，也理解 AI 在流程優化與內容生成的應用場景與限制。
+              </p>
+              <div class="skill-tags">
+                <span class="tag">ChatGPT</span>
+                <span class="tag">FAQ Flow</span>
+                <span class="tag">Prompt</span>
+                <span class="tag">內容流程優化</span>
+              </div>
+            </article>
+
+            <article class="skill-card card">
+              <h3 class="skill-title">System & Integration / PM</h3>
+              <p class="skill-text">
+                具 HTML / CSS / JavaScript 基礎，理解 API 與資料串接邏輯；並具跨部門專案整合、需求整理、UAT、Jira 追蹤與專案推進經驗。
+              </p>
+              <div class="skill-tags">
+                <span class="tag">HTML / CSS / JS</span>
+                <span class="tag">Google Apps Script</span>
+                <span class="tag">API Logic</span>
+                <span class="tag">UAT</span>
+                <span class="tag">Jira</span>
+                <span class="tag">Cross-functional PM</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:SKILLS-END -->
+
+
+      <!-- SECTION:PROJECTS-START -->
+      <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
+        <div class="container">
+          <span class="eyebrow">Projects</span>
+          <h2 id="projects-heading" class="section-title">作品集</h2>
+          <p class="section-desc">
+            以下專案以履歷中的專案成就、工作內容與核心能力為基礎整理，重點呈現我在需求、流程、資料與落地執行上的角色。
+          </p>
+
+          <div class="projects-grid">
+            <article class="project-card card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+                alt="數據儀表板與網站分析畫面"
+                loading="lazy"
+              >
+              <div class="project-body">
+                <div class="project-top">
+                  <h3 class="project-title">SEO × GA4 數據決策系統</h3>
+                  <span class="project-type">Data / SEO</span>
+                </div>
+                <p class="project-desc">
+                  建立搜尋流量與轉換整合分析架構，串接 GA4 與 Search Console，支援數據分析、內容策略與產品優化。
+                </p>
+                <ul class="project-points">
+                  <li><strong>專案背景：</strong>品牌官網與多通路平台需要更清楚的 SEO 成效觀察與優化依據。</li>
+                  <li><strong>我的角色：</strong>整理數據邏輯、建立整合分析架構、分析關鍵字與使用者行為。</li>
+                  <li><strong>我怎麼做：</strong>透過 Search Console、GA4 與 UTM 追蹤，建立 SEO × GA4 分析與決策機制。</li>
+                  <li><strong>成果與價值：</strong>搜尋排名由平均第 9 名提升至第 6 名，CTR 由 3.1% 提升至 4.4%，自然流量成長約 20%。</li>
+                </ul>
+                <div class="project-tags">
+                  <span class="tag">GA4</span>
+                  <span class="tag">Search Console</span>
+                  <span class="tag">SEO</span>
+                  <span class="tag">UTM</span>
+                  <span class="tag">Looker Studio</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+                alt="網站表單與前端開發畫面"
+                loading="lazy"
+              >
+              <div class="project-body">
+                <div class="project-top">
+                  <h3 class="project-title">客製需求收集與自動化流程</h3>
+                  <span class="project-type">Landing Page / Workflow</span>
+                </div>
+                <p class="project-desc">
+                  規劃並建置企業客製需求導流頁，整合前端頁面、表單欄位、資料結構與自動通知流程。
+                </p>
+                <ul class="project-points">
+                  <li><strong>專案背景：</strong>需要建立更清楚的需求收集機制，提升資料可用性與後續分析效率。</li>
+                  <li><strong>我的角色：</strong>規劃頁面、設計表單欄位與資料結構，串接流程邏輯。</li>
+                  <li><strong>我怎麼做：</strong>整合 HTML / CSS / JavaScript 與 Google Apps Script，建立「表單 → 試算表 → Email」自動化流程。</li>
+                  <li><strong>成果與價值：</strong>建立完整需求收集與資料流程，提升轉換效率與資料品質，也支援後續分析與優化。</li>
+                </ul>
+                <div class="project-tags">
+                  <span class="tag">Landing Page</span>
+                  <span class="tag">HTML / CSS / JS</span>
+                  <span class="tag">Google Apps Script</span>
+                  <span class="tag">資料流程</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+                alt="內容整理與 AI 客服流程情境"
+                loading="lazy"
+              >
+              <div class="project-body">
+                <div class="project-top">
+                  <h3 class="project-title">AI 客服與內容流程優化</h3>
+                  <span class="project-type">AI / Content Workflow</span>
+                </div>
+                <p class="project-desc">
+                  由零建立 FAQ 結構與回應邏輯，導入 ChatGPT 優化客服回覆與內容生成流程。
+                </p>
+                <ul class="project-points">
+                  <li><strong>專案背景：</strong>客服問題需要更一致、更快速的回應方式，並降低內容整理成本。</li>
+                  <li><strong>我的角色：</strong>規劃 FAQ 架構、整理問答邏輯、設計 AI 應用方式。</li>
+                  <li><strong>我怎麼做：</strong>使用 ChatGPT 持續優化客服流程、回應內容與問答架構。</li>
+                  <li><strong>成果與價值：</strong>提升回應效率、內容一致性與問題解決速度。</li>
+                </ul>
+                <div class="project-tags">
+                  <span class="tag">ChatGPT</span>
+                  <span class="tag">FAQ</span>
+                  <span class="tag">AI Workflow</span>
+                  <span class="tag">客服流程</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                alt="團隊協作與專案會議情境"
+                loading="lazy"
+              >
+              <div class="project-body">
+                <div class="project-top">
+                  <h3 class="project-title">會員系統與跨部門專案協作</h3>
+                  <span class="project-type">PM / System Collaboration</span>
+                </div>
+                <p class="project-desc">
+                  參與會員系統功能優化與導入，負責需求與流程文件、UAT、問題整理、Jira 追蹤與上線協作。
+                </p>
+                <ul class="project-points">
+                  <li><strong>專案背景：</strong>會員系統需要持續優化，並兼顧營運需求與使用流程。</li>
+                  <li><strong>我的角色：</strong>釐清使用者與營運需求，協助與 IT 團隊協作推動功能優化。</li>
+                  <li><strong>我怎麼做：</strong>撰寫功能需求與流程文件、參與 UAT 與驗收、使用 Jira 追蹤問題與進度。</li>
+                  <li><strong>成果與價值：</strong>支援系統順利導入與版本優化，降低需求轉譯落差，提升協作效率。</li>
+                </ul>
+                <div class="project-tags">
+                  <span class="tag">需求文件</span>
+                  <span class="tag">UAT</span>
+                  <span class="tag">Jira</span>
+                  <span class="tag">跨部門協作</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:PROJECTS-END -->
+
+
+      <!-- SECTION:CONTACT-START -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <span class="eyebrow">Contact</span>
+          <h2 id="contact-heading" class="section-title">聯絡我</h2>
+          <p class="section-desc">
+            如果你正在找能結合需求整理、資料應用、流程設計與跨部門專案協作的人，歡迎來信交流。
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card card">
+              <h3 class="contact-title">我可以協助的方向</h3>
+              <p class="contact-text">
+                適合需要產品與流程規劃、需求收集機制、Landing Page 與資料流程設計、SEO / GA4 分析思維，或 AI 工具導入整理的團隊與專案。
+              </p>
+
+              <ul class="contact-list">
+                <li>
+                  <span>希望職稱</span>
+                  產品經理、專案經理
+                </li>
+                <li>
+                  <span>工作關注</span>
+                  數據驅動決策、系統整合、流程優化、AI 應用落地
+                </li>
+              </ul>
+
+              <div class="contact-cta">
+                <a href="mailto:december2425@yahoo.com.tw" class="btn btn-primary">寄信給我</a>
+                <a href="#projects" class="btn btn-secondary">查看作品集</a>
+              </div>
+            </div>
+
+            <div class="contact-card card">
+              <h3 class="contact-title">公開聯絡資訊</h3>
+              <ul class="contact-list">
+                <li>
+                  <span>Email</span>
+                  <a href="mailto:december2425@yahoo.com.tw">december2425@yahoo.com.tw</a>
+                </li>
+                <li>
+                  <span>英文姓名</span>
+                  Claudia Li
+                </li>
+                <li>
+                  <span>語言</span>
+                  中文精通、英文中等、台語中等
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:CONTACT-END -->
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 Claudia Li · Portfolio based on resume content and project experience.</p>
       </div>
-
-    </div>
-
+    </footer>
   </div>
-</section>
-<!-- SECTION:ABOUT-END -->
-
-
-<!-- SECTION:SKILLS-START -->
-<section id="skills" class="section section-skills">
-  <div class="container">
-    <h2 class="section-title">技能（之後會用 Section SDD 替換）</h2>
-    <p>占位內容</p>
-  </div>
-</section>
-<!-- SECTION:SKILLS-END -->
-
-
-<!-- SECTION:PROJECTS-START -->
-<section id="projects" class="section section-projects">
-  <div class="container">
-    <h2 class="section-title">作品集（之後會用 Section SDD 替換）</h2>
-    <p>占位內容</p>
-  </div>
-</section>
-<!-- SECTION:PROJECTS-END -->
-
-
-<!-- SECTION:CONTACT-START -->
-<section id="contact" class="section section-contact">
-  <div class="container">
-    <h2 class="section-title">聯絡我（之後會用 Section SDD 替換）</h2>
-    <p>
-      <a href="mailto:hello@example.com">hello@example.com</a>
-    </p>
-  </div>
-</section>
-<!-- SECTION:CONTACT-END -->
-
-</main>
-
-<footer>
-  <div class="container">
-    <p>© 2026 Claudia Li</p>
-  </div>
-</footer>
-
-</div>
 </body>
 </html>
